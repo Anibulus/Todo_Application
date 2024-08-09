@@ -92,4 +92,13 @@ export class LabsComponent implements OnDestroy {
     ]
   });
 
+  nameControl = new FormControl(50,{
+    nonNullable:true,
+    validators: 
+    [
+      Validators.required,
+      Validators.minLength(5)
+    ]
+  });
+
 }

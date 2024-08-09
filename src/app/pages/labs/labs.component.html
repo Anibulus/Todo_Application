@@ -61,6 +61,12 @@
       <rect x="0" y="0" height="100" width="100" [attr.fill]="colorControl.value"/>
     </g>
   </svg>
-  <input type="color" [formControl]="widthControl"/>
+  <input type="number" [formControl]="widthControl"/>
   <span class="box" [style.width.px]="widthControl.value"></span>
+  <hr/>
+  <p>
+    <input type="text" [formControl]="nameControl"/>
+    <span class="message-error" [class.active]="nameControl.invalid && nameControl.touched">Nombre incorrecto</span>
+  </p>
+
 </div>
