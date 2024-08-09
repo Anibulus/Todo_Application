@@ -23,7 +23,7 @@ ng g component pages/home
 
 The folder `/dist/[name-project]/` is the one to deploy.
 
-## Despliegue a produccion
+## Deploy to Production
 
 Build the application (optimization tasks)
 ```bash
@@ -39,6 +39,11 @@ firebase login
 
 firebase init
 
+firebase deploy --debug
+``` 
+
+<!--
+On firebase init, those are the settings
 ? Which Firebase features do you want to set up for this 
 directory? Press Space to select features, then Enter to confirm 
 your choices. Hosting: Configure files for Firebase Hosting and 
@@ -48,16 +53,13 @@ your choices. Hosting: Configure files for Firebase Hosting and
 ? Configure as a single-page app (rewrite all urls to 
 /index.html)? Yes
 ? Set up automatic builds and deploys with GitHub? No
+-->
 
-firebase deploy --debug
-``` 
-
-https://console.firebase.google.com/project/todoapp-d5e74/overview
-https://todoapp-d5e74.web.app
+[TODO application deployed](https://todoapp-d5e74.web.app)
 
 
-## Pending
-
-Revisar como funciona 
+### Pending
+Check how Injector works with local storage
+```js
 injector = inject(Injector);
-para la carga de los tasks que lo obtiene de almacenamiento local
+```
