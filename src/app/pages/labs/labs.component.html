@@ -1,0 +1,66 @@
+
+<div class="container">
+
+  <h1>Hola, este es mi primer proyecto</h1>
+  <h2> {{welcome}} </h2>
+
+  <h2>{{'Hola'.repeat(4)}}</h2>
+  <p>La suma de 5 + 3 es {{ 5+3 }}</p>
+  <p>Hola soy {{ name }} y mi edad es {{ age }}</p>
+  <hr/>
+
+  <img [src]="image">
+  <input type="text" [value]="name">
+  <button [disabled]="disabled"></button>
+  <p> Person {{person().name}}</p>
+  <hr/>
+  <button (click)="clickHandler()" >Click me</button>
+  <br/>
+  <button (dblclick)="clickHandler()" >Double click</button>
+  <p>(change)</p>
+  <input type="number" [value]="person().age" (change)="changeHandler($event)">
+  <p>(keydown)</p>
+  <input type="text" [value]="person().name" (keydown)="keydownHandler($event)">
+  <p>(keydown shift)</p>
+  <input type="text" [value]="person().name" (keydown.shift.t)="clickHandler()">
+  <hr/>
+  <h1>Signals</h1>
+  <p>FistName {{signalName}}</p>
+  <p>FirstName {{signalName()}}</p>
+  <input type="text" [value]="signalName()" (change)="updateName($event)">
+
+  <p>Total {{ tasks().length }}</p>
+  <ul>
+    <li *ngFor="let task of tasks(); index as i">
+      {{i+1}} {{task}}
+    </li>
+  </ul>
+  <hr/>
+  <div *ngIf="1 !== 1">
+    My contenido
+  </div>
+
+  <input type="number" [value]="person().age" (change)="changeAgeHandler($event)" />
+  <div *ngIf="person().age > 18; else miBloque">
+    My contenido {{signalName()}}
+  </div>
+  <ng-template #miBloque>
+    Tengo menos de 18 años
+  </ng-template>
+  <div [ngSwitch]="person().age">
+    <p *ngSwitchCase="16">You came too early </p>
+    <p *ngSwitchCase="18">Celebrating your high age</p>
+    <p *ngSwitchCase="25">What are you doing here? </p>
+    <p *ngSwitchDefault>No pending celegreting</p>
+  </div>
+  <hr/>
+  <input type="color" [formControl]="colorControl">
+  <p>Color: {{colorControl.value}}</p>
+  <svg>
+    <g>
+      <rect x="0" y="0" height="100" width="100" [attr.fill]="colorControl.value"/>
+    </g>
+  </svg>
+  <input type="color" [formControl]="widthControl"/>
+  <span class="box" [style.width.px]="widthControl.value"></span>
+</div>
